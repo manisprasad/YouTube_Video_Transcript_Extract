@@ -29,8 +29,10 @@ app.get("/transcript/:id", async (req: Request, res: Response) => {
 
   try {
     const transcript = await fetchTranscriptData(videoId);
-    res.json({ success: true, transcript });
+    console.log(transcript.splice(0,100))
+    res.status(200).json({ success: true, transcript });
   } catch (err: any) {
+    console.error(err);
     res.status(500).json({
       success: false,
       message: err.message || "Failed to fetch transcript",
