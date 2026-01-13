@@ -99,7 +99,7 @@ async function fetchTranscriptData(videoId: string) {
 
   return transcriptArray.map((item: any) => ({
     start: parseFloat(item.start),
-    dur: parseFloat(item.dur),
+     duration: parseFloat(item.dur),
     text: he.decode(item["#text"] || ""),
   }));
 }
@@ -186,3 +186,4 @@ app.listen(PORT, () => {
 //     text: he.decode(item["#text"] || ""),
 //   }));
 // }
+
